@@ -19,7 +19,7 @@ function forms(formSelector,modalTimerId){
 
     function bindPostDate(form) {
         form.addEventListener('submit', (e)=>{
-            e.preventDefault(); // Отмена стандартного поведения браузера
+            e.preventDefault();
 
             const statusMessages = document.createElement('img');
             statusMessages.src = message.loading;
@@ -33,7 +33,7 @@ function forms(formSelector,modalTimerId){
 
             const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-            postData('http://localhost:3000/requests',json)
+            postData('https://back-end-food-plan.onrender.com/requests',json)
                 .then(data => {
                     console.log(data)
                     showThanksModal(message.success);
